@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Home
+permalink: /
+---
+<section class="hero">
+  <h1>Cuvolti</h1>
+  <p>Ideas, information, and opinions — written and published here, one piece at a time.</p>
+</section>
+
+<div class="section-label">Latest</div>
+<div class="grid{% if collections.articles.length == 0 %} empty-grid{% endif %}">
+{% for article in collections.articles %}
+  {% if loop.index <= 6 %}
+  <a class="card" href="{{ article.url }}">
+    <span class="tag-pill">{{ article.data.tag }}</span>
+    <h3>{{ article.data.title }}</h3>
+    <p>{{ article.data.excerpt }}</p>
+    <span class="date">{{ article.date | readableDate }}</span>
+  </a>
+  {% endif %}
+{% else %}
+  <p class="empty-note">No articles published yet. The first one will show up here.</p>
+{% endfor %}
+</div>

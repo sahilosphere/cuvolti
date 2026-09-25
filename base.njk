@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — Cuvolti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<header>
+  <a class="brand" href="/">
+    <img class="logo-mark" src="/assets/logo.png" alt="Cuvolti">
+    <span class="brand-name">Cuvolti</span>
+  </a>
+  <nav>
+    <a href="/about/">About</a>
+    <a href="/all-posts/">All Posts</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+</header>
+
+{{ content | safe }}
+
+<footer>
+  <div class="foot-columns">
+    <div>
+      <div class="foot-brand">
+        <img class="logo-mark" src="/assets/logo.png" alt="Cuvolti">
+        <span class="foot-name">CUVOLTI</span>
+      </div>
+    </div>
+    <div>
+      <div class="foot-heading">More</div>
+      <div class="foot-links">
+        <a href="/about/">About</a>
+        <a href="/all-posts/">All Posts</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-heading">Contact</div>
+      <a class="foot-email" href="mailto:sahilosphere@gmail.com">sahilosphere@gmail.com</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Cuvolti. All rights reserved.</span>
+  </div>
+</footer>
+
+</body>
+</html>
