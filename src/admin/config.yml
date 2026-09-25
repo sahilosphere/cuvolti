@@ -2,7 +2,7 @@ backend:
   name: github
   repo: sahilosphere/cuvolti  
   branch: main
-  base_url: https:// decap-proxy-production-f192.up.railway.app   
+  base_url: https://decap-proxy-production-f192.up.railway.app   
 
 media_folder: "src/assets/uploads"
 public_folder: "/assets/uploads"
