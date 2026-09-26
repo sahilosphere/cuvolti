@@ -4,7 +4,7 @@ title: sahilosphere
 date: 2026-09-26
 tag: Opinion
 excerpt: no expert
-permalink: "/articles/sahilosphere/ "
+permalink: /sahilosphere/
 ---
 hiii iam a good andabaosa vhhhiuheg . ug8lu z89gW uAb final testing ka waqt hai. Aapka poora backend aur login setup complete ho gaya hai! 🎉
 
