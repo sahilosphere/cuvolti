@@ -1,5 +1,5 @@
 ---
-layout: post.njk
+layout: article.njk
 title: sahilosphere
 date: 2026-09-26
 tag: Opinion
