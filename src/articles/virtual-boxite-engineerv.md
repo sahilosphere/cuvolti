@@ -5,8 +5,7 @@ date: 2026-09-17
 tag: Opinion
 excerpt: >-
   Deployment list dikhata hai sab kuch "Ready" hai (koi build error nahi), aur
-  sabse upar wala (`bd34d98`, 17 min pehle) hi abhi live/production hai. To
-  build fail nahi ho raha — matlab problem kahin aur hai.
+  si.
 
 
   Do cheezein turant karo, taaki exact wajah pakad sakein:
