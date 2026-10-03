@@ -1,0 +1,32 @@
+---
+layout: base.njk
+title: All Posts
+permalink: /all-posts/
+---
+<div class="wrap">
+  <h1 style="margin-bottom:20px;">All Posts</h1>
+  <div class="filter-bar" style="padding:0;margin:0 0 20px;">
+    <label for="category-select" class="filter-label">Filter by category</label>
+    <select id="category-select" class="category-select">
+      <option value="All">All</option>
+      <option value="Random Thoughts">Random Thoughts</option>
+      <option value="Opinions">Opinions</option>
+      <option value="Information">Information</option>
+      <option value="Life & Observations">Life & Observations</option>
+      <option value="Tech & Trends">Tech & Trends</option>
+      <option value="Learnings">Learnings</option>
+      <option value="Personal">Personal</option>
+      <option value="Current Affairs">Current Affairs</option>
+    </select>
+  </div>
+  {% for article in collections.articles %}
+  <div class="filter-item" data-category="{{ article.data.category }}" style="padding:18px 0;border-bottom:1px solid var(--hairline);">
+    <h3 style="font-size:18px;font-weight:600;margin-bottom:6px;">
+      <a href="{{ article.url }}" style="color:var(--ink);text-decoration:none;">{{ article.data.title }}</a>
+    </h3>
+    <p style="font-size:13.5px;color:var(--ink-dim);margin:0;">{{ article.date | readableDate }}{% if article.data.category %} · {{ article.data.category }}{% endif %}</p>
+  </div>
+  {% else %}
+  <p class="empty-note">No articles published yet.</p>
+  {% endfor %}
+</div>
