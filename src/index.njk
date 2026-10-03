@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Home
+permalink: /
+---
+<section class="hero">
+  <div class="hero-content">
+    <h1>Cuvolti</h1>
+    <p class="hero-tagline">Every thought deserves to be written.</p>
+    <p class="hero-desc">This is where whatever crosses my mind finds a home — tech, life, opinions, or just a random spark of thought. No filters, no scripts. Just real.</p>
+  </div>
+</section>
+
+<section class="intro">
+  <h2 class="page-h2">About Cuvolti</h2>
+  <p>Cuvolti is a space where ideas turn into words. Every post here brings a different perspective — sometimes an opinion on something trending, sometimes useful information, sometimes just a random thought worth sharing. If you enjoy reading things that make you think, you're in the right place.</p>
+</section>
+
+<section class="categories">
+  <h2 class="page-h2">What You'll Find Here</h2>
+  <ul class="category-list">
+    <li><span class="cat-emoji">💭</span><span><strong>Random Thoughts</strong> — Unstructured, unplanned, straight from the mind</span></li>
+    <li><span class="cat-emoji">🗣️</span><span><strong>Opinions</strong> — Honest take on things that matter</span></li>
+    <li><span class="cat-emoji">ℹ️</span><span><strong>Information</strong> — Useful stuff, explained simply</span></li>
+    <li><span class="cat-emoji">🌍</span><span><strong>Life &amp; Observations</strong> — Everyday moments turned into words</span></li>
+    <li><span class="cat-emoji">🚀</span><span><strong>Tech &amp; Trends</strong> — New tools, apps, AI, and everything digital</span></li>
+    <li><span class="cat-emoji">📚</span><span><strong>Learnings</strong> — Something new learned, understood, and shared</span></li>
+    <li><span class="cat-emoji">🎯</span><span><strong>Personal</strong> — Personal experiences, journey, and reflections</span></li>
+    <li><span class="cat-emoji">🌐</span><span><strong>Current Affairs</strong> — News, events, and anything interesting happening around</span></li>
+  </ul>
+</section>
+
+<div class="section-label">Latest</div>
+<div class="filter-bar">
+  <label for="category-select" class="filter-label">Filter by category</label>
+  <select id="category-select" class="category-select">
+    <option value="All">All</option>
+    <option value="Random Thoughts">Random Thoughts</option>
+    <option value="Opinions">Opinions</option>
+    <option value="Information">Information</option>
+    <option value="Life & Observations">Life & Observations</option>
+    <option value="Tech & Trends">Tech & Trends</option>
+    <option value="Learnings">Learnings</option>
+    <option value="Personal">Personal</option>
+    <option value="Current Affairs">Current Affairs</option>
+  </select>
+</div>
+<div class="article-list">
+{% for article in collections.articles %}
+  <a class="article-row filter-item fade-in-up" style="transition-delay:{{ loop.index0 * 50 }}ms" data-category="{{ article.data.category }}" href="{{ article.url }}">
+    <div class="article-thumb">
+      {% if article.data.image %}
+        <img src="{{ article.data.image }}" alt="">
+      {% else %}
+        <div class="thumb-placeholder"></div>
+      {% endif %}
+    </div>
+    <div class="article-info">
+      <h3>{{ article.data.title }}</h3>
+      <p>{{ article.data.excerpt }}</p>
+      <span class="date">{{ article.date | readableDate }}{% if article.data.category %} · {{ article.data.category }}{% endif %}</span>
+    </div>
+  </a>
+{% else %}
+  <p class="empty-note">No articles published yet. The first one will show up here.</p>
+{% endfor %}
+</div>
