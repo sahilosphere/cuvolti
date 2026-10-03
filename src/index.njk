@@ -1,0 +1,81 @@
+---
+layout: base.njk
+title: Home
+permalink: /
+---
+<section class="hero">
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1>Cuvolti</h1>
+    <p class="hero-tagline">Unfiltered Thoughts. Honest Words.</p>
+    <p class="hero-desc">This is where whatever crosses my mind finds a home — tech, life, opinions, or just a random spark of thought. No filters, no scripts. Just real.</p>
+  </div>
+</section>
+
+<section class="intro">
+  <p>Cuvolti is a space where ideas turn into words. Every post here brings a different perspective — sometimes an opinion on something trending, sometimes useful information, sometimes just a random thought worth sharing. If you enjoy reading things that make you think, you're in the right place.</p>
+</section>
+
+<section class="categories">
+  <div class="section-label" style="padding:0;margin:0 0 20px;">What you'll find here — tap a category to filter</div>
+  <div class="category-grid category-filter">
+    <button class="category-item active" data-filter="All">
+      <span class="cat-emoji">✨</span>
+      <div><h4>All</h4><p>Everything, newest first</p></div>
+    </button>
+    <button class="category-item" data-filter="Random Thoughts">
+      <span class="cat-emoji">💭</span>
+      <div><h4>Random Thoughts</h4><p>Unstructured, unplanned, straight from the mind</p></div>
+    </button>
+    <button class="category-item" data-filter="Opinions">
+      <span class="cat-emoji">🗣️</span>
+      <div><h4>Opinions</h4><p>Honest take on things that matter</p></div>
+    </button>
+    <button class="category-item" data-filter="Information">
+      <span class="cat-emoji">ℹ️</span>
+      <div><h4>Information</h4><p>Useful stuff, explained simply</p></div>
+    </button>
+    <button class="category-item" data-filter="Life & Observations">
+      <span class="cat-emoji">🌍</span>
+      <div><h4>Life &amp; Observations</h4><p>Everyday moments turned into words</p></div>
+    </button>
+    <button class="category-item" data-filter="Tech & Trends">
+      <span class="cat-emoji">🚀</span>
+      <div><h4>Tech &amp; Trends</h4><p>New tools, apps, AI, and everything digital</p></div>
+    </button>
+    <button class="category-item" data-filter="Learnings">
+      <span class="cat-emoji">📚</span>
+      <div><h4>Learnings</h4><p>Something new learned, understood, and shared</p></div>
+    </button>
+    <button class="category-item" data-filter="Personal">
+      <span class="cat-emoji">🎯</span>
+      <div><h4>Personal</h4><p>Personal experiences, journey, and reflections</p></div>
+    </button>
+    <button class="category-item" data-filter="Current Affairs">
+      <span class="cat-emoji">🌐</span>
+      <div><h4>Current Affairs</h4><p>News, events, and anything interesting happening around</p></div>
+    </button>
+  </div>
+</section>
+
+<div class="section-label">Latest</div>
+<div class="article-list">
+{% for article in collections.articles %}
+  <a class="article-row fade-in-up" style="transition-delay:{{ loop.index0 * 50 }}ms" data-category="{{ article.data.category }}" href="{{ article.url }}">
+    <div class="article-thumb">
+      {% if article.data.image %}
+        <img src="{{ article.data.image }}" alt="">
+      {% else %}
+        <div class="thumb-placeholder"></div>
+      {% endif %}
+    </div>
+    <div class="article-info">
+      <h3>{{ article.data.title }}</h3>
+      <p>{{ article.data.excerpt }}</p>
+      <span class="date">{{ article.date | readableDate }}{% if article.data.category %} · {{ article.data.category }}{% endif %}</span>
+    </div>
+  </a>
+{% else %}
+  <p class="empty-note">No articles published yet. The first one will show up here.</p>
+{% endfor %}
+</div>

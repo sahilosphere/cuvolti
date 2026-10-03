@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+<div class="wrap">
+  <article>
+    <h1>{{ title }}</h1>
+    <div class="meta">{{ date | readableDate }} · Cuvolti · {{ content | readingTime }} min read</div>
+    {{ content | safe }}
+
+    <div class="share-row">
+      <span class="share-label">Share:</span>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://wa.me/?text={{ (title + ' — ' + siteUrl + page.url) | urlencode }}">WhatsApp</a>
+      <a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text={{ title | urlencode }}&url={{ (siteUrl + page.url) | urlencode }}">X / Twitter</a>
+    </div>
+
+    <div class="author-bio">
+      <img class="author-avatar" src="/assets/logo.png" alt="Sahilosphere">
+      <div>
+        <div class="author-name">Written by Sahilosphere</div>
+        <p class="author-desc">Commerce student building Cuvolti — an independent space for unfiltered thoughts, one post at a time.</p>
+      </div>
+    </div>
+  </article>
+  <a class="back" href="/">← Back to all articles</a>
+</div>
