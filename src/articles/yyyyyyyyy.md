@@ -1,5 +1,5 @@
 ---
-title: yyyyyyyyy
+title: basics math
 date: 2026-10-07
 category: Opinions
 excerpt: "Option 1: The Direct Refinement (Most Professional)Heading: Because
