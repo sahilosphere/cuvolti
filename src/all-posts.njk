@@ -3,9 +3,9 @@ layout: base.njk
 title: All Posts
 permalink: /all-posts/
 ---
-<div class="wrap">
-  <h1 style="margin-bottom:20px;">All Posts</h1>
-  <div class="filter-bar" style="padding:0;margin:0 0 20px;">
+<div class="all-posts-wrap">
+  <h1 class="all-posts-title">All Posts</h1>
+  <div class="filter-bar" style="padding:0;margin:0 0 24px;">
     <label for="category-select" class="filter-label">Filter by category</label>
     <select id="category-select" class="category-select">
       <option value="All">All</option>
@@ -19,14 +19,31 @@ permalink: /all-posts/
       <option value="Current Affairs">Current Affairs</option>
     </select>
   </div>
+
+  <div class="article-list" style="padding:0;margin:0;">
   {% for article in collections.articles %}
-  <div class="filter-item" data-category="{{ article.data.category }}" style="padding:18px 0;border-bottom:1px solid var(--hairline);">
-    <h3 style="font-size:18px;font-weight:600;margin-bottom:6px;">
-      <a href="{{ article.url }}" style="color:var(--ink);text-decoration:none;">{{ article.data.title }}</a>
-    </h3>
-    <p style="font-size:13.5px;color:var(--ink-dim);margin:0;">{{ article.date | readableDate }}{% if article.data.category %} · {{ article.data.category }}{% endif %}</p>
-  </div>
+    <a class="article-row filter-item fade-in-up" style="transition-delay:{{ loop.index0 * 50 }}ms" data-category="{{ article.data.category }}" href="{{ article.url }}">
+      <div class="article-thumb">
+        {% if article.data.image %}
+          <img src="{{ article.data.image }}" alt="{{ article.data.title }}" loading="lazy">
+        {% else %}
+          <div class="thumb-placeholder"></div>
+        {% endif %}
+      </div>
+      <div class="article-info">
+        <h3>{{ article.data.title }}</h3>
+        <p>
+          {% if article.data.excerpt %}
+            {{ article.data.excerpt }}
+          {% else %}
+            {{ article.templateContent | striptags | truncate(140, true, "...") }}
+          {% endif %}
+        </p>
+        <span class="date">{{ article.date | readableDate }}{% if article.data.category %} · <span class="cat-badge">{{ article.data.category }}</span>{% endif %}</span>
+      </div>
+    </a>
   {% else %}
-  <p class="empty-note">No articles published yet.</p>
+    <p class="empty-note">No articles published yet.</p>
   {% endfor %}
+  </div>
 </div>
